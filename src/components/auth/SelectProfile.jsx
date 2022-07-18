@@ -41,9 +41,8 @@ const SelectProfile = () => {
                                     </div>
                                 )
                             })
-
                         }
-                        <div className="item_profile ">
+                        <div className="item_profile">
                             <div className="img_profile d-flex justify-center align-center">
                                 <AddCircleIcon sx={{ fontSize: 100 }} />
                             </div>
