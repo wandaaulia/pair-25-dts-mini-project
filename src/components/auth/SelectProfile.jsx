@@ -1,6 +1,8 @@
 import React from 'react'
 import Navbar from '../base/Navbar'
+import Button from '@mui/material/Button';
 import '../../assets/css/selectProfile.css'
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const SelectProfile = () => {
     const listProfile = [
@@ -41,6 +43,18 @@ const SelectProfile = () => {
                             })
 
                         }
+                        <div className="item_profile ">
+                            <div className="img_profile d-flex justify-center align-center">
+                                <AddCircleIcon sx={{ fontSize: 100 }} />
+                            </div>
+                            <p className="name_profile">
+                                Other
+                            </p>
+                        </div>
+                    </div>
+                    {/* <button className='manage_profile'>MANAGE PROFILE</button> */}
+                    <div className="d-flex justify-center">
+                        <Button variant="outlined" >Manage Profile</Button>
                     </div>
                 </div>
             </div>

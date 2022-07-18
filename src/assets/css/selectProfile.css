@@ -10,7 +10,6 @@
 
 .item_profile {
     width: 150px;
-    height: 250px;
     margin: 10px;
 }
 
@@ -26,4 +25,16 @@
     font-weight: 400;
     text-align: center;
     color: #6D6D6EB2;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
 }
