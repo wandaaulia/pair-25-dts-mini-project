@@ -1,11 +1,12 @@
 import React from 'react'
-import Button from '@mui/material/Button';
-import { useSelector } from 'react-redux'
+import Navbar from './base/Navbar.jsx';
+import RegularListMovie from './base/RegularListMovie.jsx';
 const Home = () => {
-    const balance = useSelector(state => state.apis)
     return (
         <div className='bg_default'>
-            <Button variant="contained">{balance.env}</Button>
+            <Navbar />
+            <RegularListMovie title='Popular' />
+            <RegularListMovie title='On the agenda' />
         </div>
     )
 }

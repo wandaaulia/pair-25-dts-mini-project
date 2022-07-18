@@ -6,6 +6,12 @@
   font-family: Inter;
 }
 
+.temp_list_movie {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
 .bg_default {
   min-height: 100vh;
   background: #201F1F;
@@ -28,9 +34,10 @@
   line-height: 31px;
   letter-spacing: 0em;
   color: #E5E5E5;
+  margin-bottom: 10px;
 }
 
-.colod_default {
+.color_default {
   color: #E5E5E5;
 
 }
@@ -57,4 +64,12 @@
 
 .logo_nav {
   height: 50px;
+}
+
+.item_movie {
+  height: 160px;
+  width: 285px;
+  border-radius: 2px;
+  object-fit: cover;
+  margin-right: 10px;
 }
