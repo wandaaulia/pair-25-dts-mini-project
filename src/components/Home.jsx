@@ -1,11 +1,16 @@
 import React from 'react'
 import Button from '@mui/material/Button';
+import ResponsiveNavbar from './base/Appbar/Appbar';
+import tmdb from '../apis/tmdb';
+import MovieList from './base/Movie/MovieList';
 
 const Home = () => {
     return (
-        <div className='bg_default'>
-            <Button variant="contained">Hello World</Button>
-        </div>
+        <>
+        <ResponsiveNavbar/> 
+            {/* <Button variant="contained">Hello World</Button> */}
+            <MovieList />
+        </>
     )
 }
 
