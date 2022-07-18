@@ -1,13 +1,60 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Inter;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.bg_default {
+  min-height: 100vh;
+  background: #201F1F;
+  box-sizing: border-box;
+  padding-top: 10vh;
+}
+
+.select_profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 90vh;
+}
+
+.title_default {
+  font-family: Inter;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 31px;
+  letter-spacing: 0em;
+  color: #E5E5E5;
+}
+
+.colod_default {
+  color: #E5E5E5;
+
+}
+
+.navbar {
+  height: 10vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: white;
+  transition: 0.5s all;
+  z-index: 99;
+}
+
+.scrolled {
+  background: #201F1F;
+  transition: 0.5s all;
+}
+
+.logo_nav {
+  height: 50px;
 }
