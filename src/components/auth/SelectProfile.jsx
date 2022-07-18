@@ -23,6 +23,7 @@ const SelectProfile = () => {
             img: require('../../assets/img/cocuk.png')
         },
     ]
+    console.log(process.env.REACT_APP_KEY)
     return (
         <div className="bg_default" sx={{ display: 'flex', alignItems: 'center' }}>
             <Navbar />
