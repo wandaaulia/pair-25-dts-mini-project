@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
-const RegularListMovie = ({ title, progress = false, heightImg = '160', endpoint = 'discover/movie', imgResolution = 'w500' }) => {
+const RegularListMovie = ({ title, endpoint = 'discover/movie', imgResolution = 'w500' }) => {
     const dispatch = useDispatch()
 
     const staticState = useSelector(state => state.apis)
@@ -39,12 +39,8 @@ const RegularListMovie = ({ title, progress = false, heightImg = '160', endpoint
                             return (
                                 <SwiperSlide key={i}>
                                     <div className='item_movie'>
-                                        <img className='img_movie' src={`${staticState.host_img}${imgResolution}${item.poster_path}`} alt="" style={{ height: `${heightImg}px` }} />
-                                        <div className="d-flex justify-center">
-                                            <div className={progress ? 'parent_progress' : 'dp_none'}>
-                                                <div className="value_progress" style={{ width: `${Math.floor(Math.random() * 95) + 1}%` }}></div>
-                                            </div>
-                                        </div>
+                                        
+                                        <img className='img_top_movie' src={`${staticState.host_img}${imgResolution}${item.poster_path}`} alt="" style={{ height: `160px` }} />
                                     </div>
                                 </SwiperSlide>
                             )

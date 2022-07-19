@@ -16,7 +16,7 @@
   min-height: 100vh;
   background: #201F1F;
   box-sizing: border-box;
-  padding-top: 10vh;
+  /* padding-top: 10vh; */
 }
 
 .select_profile {
@@ -77,6 +77,12 @@
 .img_movie {
 
   width: 100%;
+  border-radius: 2px !important;
+  object-fit: cover !important;
+}
+
+.img_top_movie {
+  width: 50%;
   border-radius: 2px !important;
   object-fit: cover !important;
 }
