@@ -1,4 +1,5 @@
 import React from 'react'
+import ResponsiveNavbar from '../base/Appbar/Appbar';
 
 const Navbar = () => {
     window.addEventListener("scroll", () => {
@@ -6,9 +7,7 @@ const Navbar = () => {
         navigate.classList.toggle("scrolled", window.scrollY > 0);
     });
     return (
-        <div className='navbar' id='nav'>
-            <img src={require("../../assets/img/logo-m.png")} className='logo_nav' alt="" />
-        </div>
+        <ResponsiveNavbar />
     )
 }
 

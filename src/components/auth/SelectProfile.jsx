@@ -3,6 +3,7 @@ import Navbar from '../base/Navbar'
 import Button from '@mui/material/Button';
 import '../../assets/css/selectProfile.css'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { Link} from 'react-router-dom';
 
 const SelectProfile = () => {
     const listProfile = [
@@ -34,7 +35,8 @@ const SelectProfile = () => {
                             listProfile.map((item, i) => {
                                 return (
                                     <div key={i} className="item_profile">
-                                        <img src={item.img} alt="" className='img_profile' />
+                                     <Link to="/login">
+                                        <img src={item.img} alt="" className='img_profile' />  </Link>
                                         <p className="name_profile">
                                             {item.name}
                                         </p>

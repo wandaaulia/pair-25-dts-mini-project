@@ -35,8 +35,8 @@ const Footer = () => {
     <Grid container spacing={1} sx={{ width: '80%', margin: 'auto'}}>
            <Grid item xs={4} md={3} sx={{  }}> 
              <List dense={true}>
-              { arrayFooter.map((val) => 
-                 <ListItem>
+              { arrayFooter.map((val, i) => 
+                 <ListItem key={i+1}>
                   <ListItemText
                     primary={val} sx={{ color: '#808080' }}
                   />
@@ -46,8 +46,8 @@ const Footer = () => {
             </Grid>
             <Grid item xs={4} md={3} sx={{  }}> 
              <List dense={true}>
-              { arrayFooter2.map((val) => 
-                 <ListItem>
+              { arrayFooter2.map((val, i) => 
+                 <ListItem key={i+5}>
                   <ListItemText
                     primary={val} sx={{ color: '#808080' }}
                   />
@@ -57,8 +57,8 @@ const Footer = () => {
             </Grid>
              <Grid item xs={4} md={3} sx={{ }}> 
              <List dense={true}>
-              { arrayFooter3.map((val) => 
-                 <ListItem>
+              { arrayFooter3.map((val, i) => 
+                 <ListItem key={i+9}>
                   <ListItemText
                     primary={val} sx={{ color: '#808080' }}
                   />
@@ -68,8 +68,8 @@ const Footer = () => {
             </Grid>
              <Grid item xs={4} md={3} sx={{}}> 
              <List dense={true}>
-              { arrayFooter4.map((val) => 
-                 <ListItem>
+              { arrayFooter4.map((val, i) => 
+                 <ListItem key={i+12}>
                   <ListItemText
                     primary={val} sx={{ color: '#808080' }}
                   />
