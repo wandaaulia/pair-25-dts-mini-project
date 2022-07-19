@@ -67,9 +67,36 @@
 }
 
 .item_movie {
-  height: 160px;
-  width: 285px;
-  border-radius: 2px;
-  object-fit: cover;
-  margin-right: 10px;
+  padding: 3px !important;
+}
+
+.dp_none {
+  display: none;
+}
+
+.img_movie {
+
+  width: 100%;
+  border-radius: 2px !important;
+  object-fit: cover !important;
+}
+
+.parent_progress {
+  width: 70%;
+  margin-top: 5px;
+  height: 4px;
+  background: rgba(109, 109, 110, 0.7);
+}
+
+.value_progress {
+  height: 4px;
+  background: #B9090B;
+}
+
+.swiper-button-next {
+  color: #E5E5E5 !important;
+}
+
+.swiper-button-prev {
+  color: #E5E5E5 !important;
 }
