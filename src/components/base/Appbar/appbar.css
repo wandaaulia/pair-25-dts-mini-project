@@ -1,0 +1,15 @@
+.appbar-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 50px;
+    list-style-type: none;
+}
+
+.appbar-icon li {
+    padding: 0px 5px;
+}
+
+.appbar-bgColor {
+    background-color: #201F1F;
+}

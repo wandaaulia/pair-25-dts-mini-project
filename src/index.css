@@ -16,7 +16,7 @@
   min-height: 100vh;
   background: #201F1F;
   box-sizing: border-box;
-  padding-top: 10vh;
+  /* padding-top: 10vh; */
 }
 
 .select_profile {

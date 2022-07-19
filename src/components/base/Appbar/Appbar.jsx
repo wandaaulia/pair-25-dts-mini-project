@@ -17,20 +17,31 @@ import SearchIcon from "@mui/icons-material/Search";
 import notif from "../../../assets/img/notif.png";
 import gift from "../../../assets/img/gift.png";
 import profilImg from "../../../assets/img/ProfileIMG.png";
+import { useAuthState} from 'react-firebase-hooks/auth';
+import { auth } from "../../../config/firebase";
 import "./appbar.css";
 
 const pages = ["Home", "Series", "Movie", "New and Popular", "My List"];
 const iconNav = [gift, notif, profilImg];
 
+
+
 const ResponsiveNavbar = () => {
+
+  const [user] = useAuthState(auth);
+
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{  backgroundColor: '#201F1F', padding: '10px 0px'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "flex" } }}>
             <Avatar alt="Remy Sharp" src={logo} />
           </Box>
 
+
+     { user && 
+
+          <Container>  
           <Box
             sx={{
               flexGrow: 2,
@@ -72,6 +83,8 @@ const ResponsiveNavbar = () => {
               ))}
             </ul>
           </Box>
+          </Container> 
+     }
         </Toolbar>
       </Container>
     </AppBar>
