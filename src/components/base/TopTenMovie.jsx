@@ -20,7 +20,7 @@ const RegularListMovie = ({ title, endpoint = 'discover/movie', imgResolution = 
                 path: endpoint
             }
             const res = await dispatch(fetchApi(data));
-            setMovie(res.results)
+            setMovie(res.results.slice(0, 10))
 
         } catch (err) {
             console.log(err)
@@ -38,9 +38,9 @@ const RegularListMovie = ({ title, endpoint = 'discover/movie', imgResolution = 
                         movie.map((item, i) => {
                             return (
                                 <SwiperSlide key={i}>
-                                    <div className='item_movie'>
-                                        
-                                        <img className='img_top_movie' src={`${staticState.host_img}${imgResolution}${item.poster_path}`} alt="" style={{ height: `160px` }} />
+                                    <div className='item_movie d-flex'>
+                                        <img src={require(`../../assets/img/top_${i + 1}.png`)} alt="" />
+                                        <img className='img_top_movie' src={`${staticState.host_img}${imgResolution}${item.poster_path}`} alt="" style={{ height: `195px` }} />
                                     </div>
                                 </SwiperSlide>
                             )
