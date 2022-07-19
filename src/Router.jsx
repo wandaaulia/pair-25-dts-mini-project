@@ -17,7 +17,12 @@ function router() {
             </ProtectedRoute>
           }
         />
-        <Route path="/select-profile" element={<SelectProfile />} />
+        <Route path="/select-profile"
+          element={
+            <ProtectedRoute>
+              <SelectProfile />
+            </ProtectedRoute>
+          } />
         <Route
           path="/login"
           element={
