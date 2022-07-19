@@ -97,9 +97,11 @@
   background: linear-gradient(90deg, rgba(3, 11, 23, 1) 90%, rgba(0, 0, 0, 1) 100%);
   box-sizing: border-box;
 }
+
 .my-3 {
   margin: 10px 0;
 }
+
 .child_info {
   width: 70%;
 }
@@ -165,4 +167,26 @@
   font-size: 56px;
   font-weight: 800;
   color: #fff;
+}
+
+.btn_play {
+  display: flex;
+  padding: 13px 25px;
+  border: none;
+  background: #fff;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+.btn_info {
+  display: flex;
+  padding: 13px 25px;
+  border: none;
+  background: #FFFFFF4D;
+  border-radius: 5px;
+}
+.txt_play {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 10px;
 }
