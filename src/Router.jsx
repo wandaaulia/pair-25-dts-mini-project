@@ -4,6 +4,7 @@ import Register from "./components/auth/Register";
 import SelectProfile from "./components/auth/SelectProfile";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import Dummy from "./components/Dummy";
 
 function router() {
   return (

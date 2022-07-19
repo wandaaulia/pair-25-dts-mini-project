@@ -15,6 +15,8 @@ const ProtectedRoute = ({children, loginOnly = true}) => {
         return <Navigate to={'/select-profile'} />
     }
 
+    
+
     return children;
 }
 
