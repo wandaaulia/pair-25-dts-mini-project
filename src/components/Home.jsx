@@ -5,10 +5,10 @@ const Home = () => {
     return (
         <div className='bg_default'>
             <Navbar />
-            <RegularListMovie title='Popular' progress={false} />
-            <RegularListMovie title='Murat, Continue Watching' progress={true} />
-            <RegularListMovie title='Original' heightImg='575' progress={false} />
-            <RegularListMovie title='On the agenda' progress={false} />
+            <RegularListMovie title='Popular' progress={false} endpoint='movie/popular' />
+            <RegularListMovie title='Murat, Continue Watching' progress={true} endpoint='movie/upcoming' />
+            <RegularListMovie title='Original' heightImg='575' progress={false} endpoint='tv/popular' />
+            <RegularListMovie title='On the agenda' progress={false} endpoint='trending/all/day' />
         </div>
     )
 }
