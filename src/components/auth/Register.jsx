@@ -10,44 +10,30 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Link, useNavigate } from 'react-router-dom';
+import {  Link, useNavigate } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { signInWithPopup } from "firebase/auth";
-import { auth, provider } from '../../config/firebase'
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../config/firebase'
 import './login.css'
 
-export const Login = () => {
-   const navigate = useNavigate();
-    const [errorMessage, setErrorMessage] = useState('');
+export const Register = () => {
+    const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState('')
 
-        const handleSubmit = async (event) => {
-
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         const email = data.get('email');
         const password = data.get('password');
-
+        
         try {
-            await signInWithEmailAndPassword(auth, email, password);
-            console.log(email);
+            const { user } = await createUserWithEmailAndPassword(auth, email, password);
+            console.log(user);
             navigate("/");
         } catch (error) {
             setErrorMessage(error.message);
         }
     };
-
-      const signInWithGoogle =  async () => {
-
-          try {
-            await signInWithPopup(auth, provider);
-            navigate("/");
-        } catch (error) {
-            setErrorMessage(error.message);
-        }
-
-  }
-
 
     return (
           <Grid container component="main" sx={{ height: '100vh' }}>
@@ -100,32 +86,20 @@ export const Login = () => {
                 id="password"
                 autoComplete="current-password"
               />
-           <Typography color='red'>{errorMessage}</Typography>
-
+                <Typography color='red'>{errorMessage}</Typography>
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 , backgroundColor: '#E50913'}}
               >
-                Sign In
+                Sign Up
               </Button>
-
-                 <Typography  sx={{
-              mx: 4,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}>or</Typography>
-
-        <Button onClick={signInWithGoogle} fullWidth sx={{color: 'black'}}> Sigin with Google </Button>
-
-
               <Grid container>
             
-                <Grid item sx={{mt: 5}}>
-                  <Link to='/register' variant="body2">
-                    {"Don't have an account? Sign Up"}
+                <Grid item>
+                  <Link to="/login" variant="body2">
+                    {" Already have an account? Sign in"}
                   </Link>
                 </Grid>
               </Grid>
@@ -135,4 +109,4 @@ export const Login = () => {
       </Grid>
     )
 }
-export default Login
+export default Register
