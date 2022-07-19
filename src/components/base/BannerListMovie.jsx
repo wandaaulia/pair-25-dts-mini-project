@@ -35,8 +35,20 @@ const RegularListMovie = ({ endpoint = 'discover/movie', imgResolution = 'w500' 
                     movie.map((item, i) => {
                         return (
                             <SwiperSlide key={i}>
-                                <div className='item_movie'>
-                                    <img className='img_movie' src={`${staticState.host_img}${imgResolution}${item.backdrop_path}`} alt="" style={{ height: `70vh` }} />
+                                <div className='item_movie d-flex'>
+                                    <div className="banner_info_movie">
+                                        <div className="child_info">
+                                            <h1 className='color_default'>{item.original_title}</h1>
+                                            <div className="d-flex">
+                                                <p className="color_default my-3">English</p>
+                                            </div>
+                                            <p className="color_default">{item.overview}</p>
+                                        </div>
+
+                                    </div>
+                                    <div className='temp_img_banner'
+                                        style={{ backgroundImage: `linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%), url(${staticState.host_img}${imgResolution}${item.backdrop_path})` }}>
+                                    </div>
 
                                 </div>
                             </SwiperSlide>

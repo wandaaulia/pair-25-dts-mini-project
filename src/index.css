@@ -88,6 +88,31 @@
   object-fit: cover !important;
 }
 
+.banner_info_movie {
+  width: 52%;
+  height: 60vh;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(3, 11, 23, 1) 90%, rgba(0, 0, 0, 1) 100%);
+  box-sizing: border-box;
+}
+.my-3 {
+  margin: 10px 0;
+}
+.child_info {
+  width: 70%;
+}
+
+.temp_img_banner {
+  width: 50%;
+  height: 60vh;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+}
+
+
 .parent_progress {
   width: 70%;
   margin-top: 5px;

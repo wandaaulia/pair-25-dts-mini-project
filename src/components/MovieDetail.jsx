@@ -9,10 +9,12 @@ const MovieDetail = () => {
     const staticState = useSelector(state => state.apis)
     const dispatch = useDispatch()
     const [movie, setMovie] = useState([])
+    const [yt, setYt] = useState('')
     const { id } = useParams();
 
     // let [vm, setVm] = useState('')
     // setVm(useParams())
+    const youtubesearchapi = require('youtube-search-api');
     const fetchData = async () => {
         try {
             let data = {
@@ -20,7 +22,10 @@ const MovieDetail = () => {
             }
             const res = await dispatch(fetchApi(data));
             setMovie(res)
-
+            youtubesearchapi.GetListByKeyword(res.original_title, [false], [1]).then(data => {
+                setYt(data.items[0])
+            })
+            document.querySelector('.movie_detail_hero').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(${staticState.host_img}original${res.backdrop_path})`
         } catch (err) {
             console.log(err)
         }
@@ -32,15 +37,16 @@ const MovieDetail = () => {
     return (
         <div className='bg_default'>
             <Navbar />
-            <div className="movie_detail_hero" style={{
-                backgroundImage: `url(${staticState.host_img}original${movie.backdrop_path})`
-            }}>
+            <div className="movie_detail_hero" >
                 <div className='temp_overview'>
                     <p className="title_movie_detail">{movie.original_title}</p>
                     <p className="color_default">{movie.overview}</p>
                     <div className="h100px"></div>
                 </div>
             </div>
+            {/* <iframe width="100%" style={{ height: '100vh ' }}
+                src={`https://www.youtube.com/embed/${yt.id}`}>
+            </iframe> */}
             <RegularListMovie title='Popular' endpoint='movie/popular' />
             <RegularListMovie title='Murat, Continue Watching' progress={true} endpoint='movie/upcoming' />
             <RegularListMovie title='On the agenda' endpoint='trending/all/day' />
