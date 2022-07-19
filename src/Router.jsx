@@ -4,6 +4,7 @@ import Register from "./components/auth/Register";
 import SelectProfile from "./components/auth/SelectProfile";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import MovieDetail from "./components/MovieDetail";
 
 function router() {
   return (
@@ -14,6 +15,14 @@ function router() {
           element={
             <ProtectedRoute>
               <Home />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/movie/:id"
+          element={
+            <ProtectedRoute>
+              <MovieDetail />
             </ProtectedRoute>
           }
         />

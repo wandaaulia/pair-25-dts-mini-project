@@ -68,6 +68,7 @@
 
 .item_movie {
   padding: 3px !important;
+  cursor: pointer;
 }
 
 .dp_none {
@@ -115,4 +116,28 @@
 .pl-20 {
   padding-left: 20px;
   transition: all .2s;
+}
+
+.movie_detail_hero {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.temp_overview {
+  width: 40%;
+  padding: 10px;
+}
+
+.h100px {
+  height: 100px
+}
+
+.title_movie_detail {
+  font-family: Inter;
+  font-size: 56px;
+  font-weight: 800;
+  color: #fff;
 }
