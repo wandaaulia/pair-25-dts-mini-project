@@ -15,11 +15,16 @@ import Paper from '@mui/material/Paper';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from '../../config/firebase'
+import { useDispatch, useSelector } from 'react-redux'
+
 import './login.css'
 
 export const Login = () => {
    const navigate = useNavigate();
-    const [errorMessage, setErrorMessage] = useState('');
+   const [errorMessage, setErrorMessage] = useState('');
+
+   const imgPhoto = useSelector(state => state.apis.imgProfile);
+
 
         const handleSubmit = async (event) => {
 
@@ -58,7 +63,7 @@ export const Login = () => {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: 'url( ' + imgPhoto + ' )',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -67,6 +72,7 @@ export const Login = () => {
 
           }}
         />
+
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{

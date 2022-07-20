@@ -97,7 +97,7 @@ const ResponsiveNavbar = () => {
                       }}
                     />
                   </li>
-                  <li> {user.displayName} </li>
+                  <li> {user.displayName ? user.displayName : user.email} </li>
 
                   {iconNav.map((item, i) => (
                     <li key={i+5}>

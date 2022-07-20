@@ -4,6 +4,7 @@ const axios = require("axios");
 const initialState = {
   host_img: process.env.REACT_APP_IMG,
   data: [],
+  imgProfile: "",
 };
 const apis = createSlice({
   name: "apis",
@@ -12,6 +13,9 @@ const apis = createSlice({
     GET_DATA: (state, action) => {
       state.data = [action.payload];
     },
+    GET_PHOTO : (state, action) => {
+       state.imgProfile = action.payload;
+    }
   },
 });
 export const fetchApi = (data) => async (dispatch) => {
@@ -26,5 +30,5 @@ export const fetchApi = (data) => async (dispatch) => {
   }
 };
 
-export const { GET_DATA } = apis.actions;
+export const { GET_DATA, GET_PHOTO} = apis.actions;
 export default apis.reducer;
