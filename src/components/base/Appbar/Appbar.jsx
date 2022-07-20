@@ -54,18 +54,10 @@ const ResponsiveNavbar = () => {
 
 
   return (
-<<<<<<< HEAD
     <AppBar
       position="static"
       style={{ backgroundColor: "#201F1F", padding: "10px 0px" }}
     >
-=======
-    // <AppBar
-    //   position="static"
-    //   style={{ backgroundColor: "#201F1F", padding: "10px 0px" }}
-    // >
-    // </AppBar>
->>>>>>> dev
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "flex" } }}>
