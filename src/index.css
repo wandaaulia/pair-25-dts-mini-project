@@ -155,7 +155,7 @@
 
 .temp_overview {
   width: 40%;
-  padding: 10px;
+  padding: 25px;
 }
 
 .h100px {
@@ -177,6 +177,7 @@
   border-radius: 5px;
   margin-right: 20px;
 }
+
 .btn_info {
   display: flex;
   padding: 13px 25px;
@@ -184,6 +185,7 @@
   background: #FFFFFF4D;
   border-radius: 5px;
 }
+
 .txt_play {
   font-family: Inter;
   font-size: 20px;
