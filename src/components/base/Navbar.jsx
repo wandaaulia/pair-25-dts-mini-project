@@ -7,7 +7,9 @@ const Navbar = () => {
         navigate.classList.toggle("scrolled", window.scrollY > 0);
     });
     return (
-        <ResponsiveNavbar />
+        <div id='nav' className='navbar'>
+            <ResponsiveNavbar />
+        </div>
     )
 }
 

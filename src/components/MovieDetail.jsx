@@ -36,6 +36,7 @@ const MovieDetail = () => {
     }
     useEffect(() => {
         fetchData()
+        window.scrollTo(0, 0);
     }, [id])
     return (
         <div className='bg_default'>

@@ -35,108 +35,106 @@ const ResponsiveNavbar = () => {
 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-   const handleOpenUserMenu = (event) => {
+  const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
-   const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
 
-    const handleLogout = async () => {
-        try {
-            await signOut(auth);
-            navigate("/select-profile");
-        } catch (err) {
-            console.log(err);
-        }
-    };
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/select-profile");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-
+  const toPage = item => {
+    if (item == 'Home') {
+      navigate("/")
+    }
+  }
   return (
-    <AppBar
-      position="static"
-      style={{ backgroundColor: "#201F1F", padding: "10px 0px" }}
-    >
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex" } }}>
-            <Avatar alt="Remy Sharp" src={logo} />
-          </Box>
+    <Container maxWidth="xl">
+      <Toolbar disableGutters>
+        <Box sx={{ flexGrow: 1, display: { xs: "flex" } }}>
+          <Avatar alt="Remy Sharp" src={logo} onClick={() => toPage('Home')} />
+        </Box>
 
-          {user && (
-            <>
-              <Box
-                sx={{
-                  flexGrow: 2,
+        {user && (
+          <>
+            <Box
+              sx={{
+                flexGrow: 2,
 
-                  display: { xs: "none", md: "flex" },
-                }}
-              >
-                {pages.map((page, i) => (
-                  <MenuItem key={i}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Box>
-
-              <Box sx={{ flexGrow: 0, display: { md: "none" } }}>
-                <SearchIcon
-                  sx={{
-                    display: { xs: "block", md: "none" },
-                  }}
-                />
-              </Box>
-
-              <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
-                <ul className="appbar-icon">
-                  <li>
-                    <SearchIcon
-                      sx={{
-                        display: { xs: "block", md: "flex" },
-                      }}
-                    />
-                  </li>
-                  <li> {user.displayName} </li>
-
-                  {iconNav.map((item, i) => (
-                    <li key={i+5}>
-                      <img src={item} style={{ margin: "0px 5px" }} />
-                    </li>
-                  ))}
-
-                  <li> 
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <img src={profilImg} style={{ margin: "0px 5px" }} /> 
-              </IconButton> </li>
-
-              <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',}}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',  }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu} >
-
-                <MenuItem onClick={handleLogout}>
-                  <Typography textAlign="center"> logout </Typography>
+                display: { xs: "none", md: "flex" },
+              }}
+            >
+              {pages.map((page, i) => (
+                <MenuItem key={i}>
+                  <Typography textAlign="center" onClick={() => toPage(page)}>{page}</Typography>
                 </MenuItem>
-            </Menu>
+              ))}
+            </Box>
 
-            </ul>
+            <Box sx={{ flexGrow: 0, display: { md: "none" } }}>
+              <SearchIcon
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              />
+            </Box>
 
-              </Box>
-            </>
-          )}
-        </Toolbar>
-      </Container>
-    </AppBar>
+            <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
+              <ul className="appbar-icon">
+                <li>
+                  <SearchIcon
+                    sx={{
+                      display: { xs: "block", md: "flex" },
+                    }}
+                  />
+                </li>
+                <li> {user.displayName} </li>
+
+                {iconNav.map((item, i) => (
+                  <li key={i + 5}>
+                    <img src={item} style={{ margin: "0px 5px" }} />
+                  </li>
+                ))}
+
+                <li>
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <img src={profilImg} style={{ margin: "0px 5px" }} />
+                  </IconButton> </li>
+                <Menu
+                  sx={{ mt: '45px' }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu} >
+
+                  <MenuItem onClick={handleLogout}>
+                    <Typography textAlign="center"> logout </Typography>
+                  </MenuItem>
+                </Menu>
+              </ul>
+            </Box>
+          </>
+        )}
+      </Toolbar>
+    </Container>
   );
 };
 export default ResponsiveNavbar;
