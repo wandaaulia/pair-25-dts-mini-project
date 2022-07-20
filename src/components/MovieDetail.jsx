@@ -36,7 +36,7 @@ const MovieDetail = () => {
     }
     useEffect(() => {
         fetchData()
-    }, [])
+    }, [id])
     return (
         <div className='bg_default'>
             <Navbar />
