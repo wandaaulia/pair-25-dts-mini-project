@@ -136,10 +136,7 @@ const ResponsiveNavbar = () => {
           )}
         </Toolbar>
       </Container>
-<<<<<<< HEAD
     </AppBar>
-=======
->>>>>>> dev
   );
 };
 export default ResponsiveNavbar;
