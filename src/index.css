@@ -192,3 +192,9 @@
   font-weight: 500;
   margin-left: 10px;
 }
+
+.splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
