@@ -15,8 +15,6 @@ const MovieDetail = () => {
     const [yt, setYt] = useState('')
     const { id } = useParams();
 
-    // let [vm, setVm] = useState('')
-    // setVm(useParams())
     const youtubesearchapi = require('youtube-search-api');
     const [isPlaying, setIsPlaying] = useState(false)
     const fetchData = async () => {
@@ -38,6 +36,7 @@ const MovieDetail = () => {
         fetchData()
         window.scrollTo(0, 0);
     }, [id])
+    
     return (
         <div className='bg_default'>
             <Navbar />
