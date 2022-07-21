@@ -27,11 +27,12 @@ import "./appbar.css";
 const pages = ["Home", "Series", "Movie", "New and Popular", "My List"];
 const iconNav = [gift, notif];
 
-const ResponsiveNavbar = () => {
+const ResponsiveNavbar = (props) => {
   const [user] = useAuthState(auth);
 
   const navigate = useNavigate();
 
+  let linkHome;
 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -53,6 +54,13 @@ const ResponsiveNavbar = () => {
     };
 
 
+    if(props.home) {
+      linkHome = <Link to="/login" variant="body2" className="login-btn">login</Link>
+    } else {
+      linkHome = <div> </div>
+    }
+
+
   return (
     <AppBar
       position="static"
@@ -64,7 +72,7 @@ const ResponsiveNavbar = () => {
             <Avatar alt="Remy Sharp" src={logo} />
           </Box>
 
-          {user && (
+          {user ? (
             <>
               <Box
                 sx={{
@@ -133,7 +141,9 @@ const ResponsiveNavbar = () => {
 
               </Box>
             </>
-          )}
+          ) : 
+          linkHome
+          }
         </Toolbar>
       </Container>
     </AppBar>

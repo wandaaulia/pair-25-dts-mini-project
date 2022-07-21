@@ -6,7 +6,7 @@ import RegularListMovie from './base/RegularListMovie.jsx';
 const Home = () => {
     return (
         <div className='bg_default'>
-            <Navbar />
+            <Navbar home={true}/>
             <RegularListMovie title='Popular' />
             <RegularListMovie title='On the agenda' />
             <Footer />

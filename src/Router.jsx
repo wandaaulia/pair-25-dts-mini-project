@@ -5,8 +5,7 @@ import SelectProfile from "./components/auth/SelectProfile";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Dummy from "./components/Dummy";
-import Login2 from "./components/auth/Login2";
-import Register2 from "./components/auth/Register2";
+
 
 function router() {
   return (
@@ -30,7 +29,7 @@ function router() {
           path="/login"
           element={
             <ProtectedRoute loginOnly={false}>
-              <Login2 />
+              <Login />
             </ProtectedRoute>
           }
         />
@@ -38,7 +37,7 @@ function router() {
           path="/register"
           element={
             <ProtectedRoute loginOnly={false}>
-              <Register2 />
+              <Register />
             </ProtectedRoute>
           }
         />

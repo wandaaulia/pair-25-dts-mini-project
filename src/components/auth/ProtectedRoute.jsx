@@ -7,13 +7,13 @@ const ProtectedRoute = ({children, loginOnly = true}) => {
   
     const [user] = useAuthState(auth);
   
-    if(user && !loginOnly) {
-        return <Navigate to={'/'} />
-    }
+    // if(user && !loginOnly) {
+    //     return <Navigate to={'/'} />
+    // }
 
-    if(!user && loginOnly) {
-        return <Navigate to={'/select-profile'} />
-    }
+    // if(!user && loginOnly) {
+    //     return <Navigate to={'/select-profile'} />
+    // }
 
     
 
