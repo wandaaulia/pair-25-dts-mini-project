@@ -1,17 +1,17 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
+// import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
+// import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
+// import Button from "@mui/material/Button";
+// import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+// import AdbIcon from "@mui/icons-material/Adb";
 import logo from "../../../assets/img/logo-m.png";
 import SearchIcon from "@mui/icons-material/Search";
 import notif from "../../../assets/img/notif.png";
@@ -20,7 +20,7 @@ import profilImg from "../../../assets/img/ProfileIMG.png";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from 'firebase/auth';
 import { auth } from "../../../config/firebase";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import "./appbar.css";
 
@@ -53,7 +53,7 @@ const ResponsiveNavbar = () => {
   };
 
   const toPage = item => {
-    if (item == 'Home') {
+    if (item === 'Home') {
       navigate("/")
     }
   }
@@ -101,13 +101,13 @@ const ResponsiveNavbar = () => {
 
                 {iconNav.map((item, i) => (
                   <li key={i + 5}>
-                    <img src={item} style={{ margin: "0px 5px" }} />
+                    <img src={item} alt='img' style={{ margin: "0px 5px" }} />
                   </li>
                 ))}
 
                 <li>
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <img src={profilImg} style={{ margin: "0px 5px" }} />
+                    <img src={profilImg} alt='img' style={{ margin: "0px 5px" }} />
                   </IconButton> </li>
                 <Menu
                   sx={{ mt: '45px' }}

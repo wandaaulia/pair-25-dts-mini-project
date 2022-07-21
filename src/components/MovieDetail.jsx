@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import Footer from './base/Footer.jsx';
 import Navbar from './base/Navbar.jsx';
@@ -36,7 +38,7 @@ const MovieDetail = () => {
         fetchData()
         window.scrollTo(0, 0);
     }, [id])
-    
+
     return (
         <div className='bg_default'>
             <Navbar />
