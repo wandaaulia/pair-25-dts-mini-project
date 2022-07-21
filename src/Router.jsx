@@ -4,47 +4,37 @@ import Register from "./components/auth/Register";
 import SelectProfile from "./components/auth/SelectProfile";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import Dummy from "./components/Dummy";
-import Login2 from "./components/auth/Login2";
-import Register2 from "./components/auth/Register2";
+import PublicRoute from "./components/auth/PubliceRoute";
+import MovieDetail from "./components/MovieDetail";
+import { SplashScreen } from "./components/SplashScreen";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../src/config/firebase'
 
-function router() {
-  return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/select-profile" element={
-         <ProtectedRoute loginOnly={false}> 
-                <SelectProfile />
-         </ProtectedRoute>
-        
-        } />
-        <Route
-          path="/login"
-          element={
-            <ProtectedRoute loginOnly={false}>
-              <Login2 />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <ProtectedRoute loginOnly={false}>
-              <Register2 />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </Router>
-  );
+const RouterSetup = () => {
+  // eslint-disable-next-line
+  const [user, loading] = useAuthState(auth);
+  console.log(loading)
+  if (loading) {
+    return (
+      <SplashScreen />
+    )
+  } else {
+    return (
+      <Router>
+        <Routes>
+          <Route element={<PublicRoute loginOnly={true} />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/select-profile" element={<SelectProfile />} />
+          </Route>
+          <Route element={<ProtectedRoute loginOnly={true} />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/movie/:id" element={<MovieDetail />} />
+          </Route>
+        </Routes>
+      </Router>
+    );
+  }
 }
 
-export default router;
+export default RouterSetup;

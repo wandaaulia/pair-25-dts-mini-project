@@ -6,6 +6,7 @@ const initialState = {
   data: [],
   imgProfile: "",
 };
+
 const apis = createSlice({
   name: "apis",
   initialState,
@@ -18,6 +19,7 @@ const apis = createSlice({
     }
   },
 });
+
 export const fetchApi = (data) => async (dispatch) => {
   try {
     const env = process.env.REACT_APP_ENV;
