@@ -66,7 +66,7 @@ const MovieDetail = () => {
                             {/* <p className="title_movie_detail">{movie.original_title}</p> */}
                             {
                                 !loading ? (
-                                    <img src={imgMovie} alt="asd" style={{ maxHeight: '200px' }} />
+                                    <img src={imgMovie} alt={movie.original_title} style={{ maxHeight: '200px' }} />
                                 ) : (<div></div>)
                             }
                             <p className="color_default">{movie.overview}</p>

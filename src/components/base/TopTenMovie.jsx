@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchApi } from '../../store/reducer.js'
+import { useNavigate } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
@@ -11,7 +12,10 @@ const RegularListMovie = ({ title, endpoint = 'discover/movie', imgResolution = 
     const dispatch = useDispatch()
 
     const staticState = useSelector(state => state.apis)
-
+    const navigate = useNavigate()
+    const toDetail = item => {
+        navigate(`/movie/${item.id}`, { replace: true })
+    }
     const [movie, setMovie] = useState([])
     const [swiperIdx, setSwiperIdx] = useState(0)
     const fetchData = async () => {
@@ -38,7 +42,7 @@ const RegularListMovie = ({ title, endpoint = 'discover/movie', imgResolution = 
                         movie.map((item, i) => {
                             return (
                                 <SwiperSlide key={i}>
-                                    <div className='item_movie d-flex'>
+                                    <div className='item_movie d-flex' onClick={() => toDetail(item)}>
                                         <img src={require(`../../assets/img/top_${i + 1}.png`)} alt="" />
                                         <img className='img_top_movie' src={`${staticState.host_img}${imgResolution}${item.poster_path}`} alt="" style={{ height: `195px` }} />
                                     </div>

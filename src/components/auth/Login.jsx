@@ -53,6 +53,7 @@ export const Login = () => {
     }
   };
 
+
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>
       <CssBaseline />
@@ -62,7 +63,7 @@ export const Login = () => {
         sm={4}
         md={7}
         sx={{
-          backgroundImage: "url( " + isImgPhoto + " )",
+          backgroundImage: "linear-gradient(90deg, rgba(0,0,0,0.3337710084033614) 39%, rgba(0,0,0,1) 76%, rgba(0,0,0,1) 100%) ,url( " + isImgPhoto + " )",
           backgroundRepeat: "no-repeat",
           backgroundColor: (t) =>
             t.palette.mode === "light"
