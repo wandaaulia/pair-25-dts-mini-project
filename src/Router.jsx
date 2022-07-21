@@ -25,8 +25,8 @@ const RouterSetup = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/select-profile" element={<SelectProfile />} />
           </Route>
+          <Route path="/" element={<Home />} />
           <Route element={<ProtectedRoute loginOnly={true} />}>
-            <Route path="/" element={<Home />} />
             <Route path="/movie/:id" element={<MovieDetail />} />
           </Route>
         </Routes>
