@@ -2,8 +2,10 @@ import * as React from "react";
 // import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
+import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+
 import Menu from "@mui/material/Menu";
 // import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
@@ -28,7 +30,7 @@ const pages = ["Home", "Series", "Movie", "New and Popular", "My List"];
 const iconNav = [gift, notif];
 
 const ResponsiveNavbar = (props) => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   const navigate = useNavigate();
 
@@ -53,21 +55,19 @@ const ResponsiveNavbar = (props) => {
     }
   };
 
-<<<<<<< HEAD
   const toPage = item => {
     if (item === 'Home') {
       navigate("/")
     }
   }
-=======
-    if(props.home) {
-      linkHome = <Link to="/login" variant="body2" className="login-btn">login</Link>
-    } else {
-      linkHome = <div> </div>
-    }
+  if (!user && !loading) {
+    linkHome = <button className="login_sign_app" onClick={() => navigate("/login")}>Login</button>
+    // linkHome = <Link to="/login" variant="body2" className="login-btn">login</Link>
+  } else {
+    linkHome = <div> </div>
+  }
 
 
->>>>>>> 09efabac824563bdc864d1a5e73f1967a6735128
   return (
     <Container maxWidth="xl">
       <Toolbar disableGutters>
@@ -75,19 +75,11 @@ const ResponsiveNavbar = (props) => {
           <Avatar alt="Remy Sharp" src={logo} onClick={() => toPage('Home')} />
         </Box>
 
-<<<<<<< HEAD
-        {user && (
+        {user ? (
           <>
             <Box
               sx={{
                 flexGrow: 2,
-=======
-          {user ? (
-            <>
-              <Box
-                sx={{
-                  flexGrow: 2,
->>>>>>> 09efabac824563bdc864d1a5e73f1967a6735128
 
                 display: { xs: "none", md: "flex" },
               }}
@@ -107,7 +99,6 @@ const ResponsiveNavbar = (props) => {
               />
             </Box>
 
-<<<<<<< HEAD
             <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
               <ul className="appbar-icon">
                 <li>
@@ -152,19 +143,11 @@ const ResponsiveNavbar = (props) => {
               </ul>
             </Box>
           </>
-        )}
+        ) :
+          linkHome
+        }
       </Toolbar>
     </Container>
-=======
-              </Box>
-            </>
-          ) : 
-          linkHome
-          }
-        </Toolbar>
-      </Container>
-    </AppBar>
->>>>>>> 09efabac824563bdc864d1a5e73f1967a6735128
   );
 };
 export default ResponsiveNavbar;
