@@ -25,6 +25,9 @@ export const Login = () => {
 
    const imgPhoto = useSelector(state => state.apis.imgProfile);
 
+     const imgPhotoLocal = localStorage.getItem("profilePhoto");
+
+     const isImgPhoto = imgPhoto ? imgPhoto : imgPhotoLocal
 
         const handleSubmit = async (event) => {
 
@@ -63,7 +66,7 @@ export const Login = () => {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url( ' + imgPhoto + ' )',
+            backgroundImage: 'url( ' + isImgPhoto + ' )',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
