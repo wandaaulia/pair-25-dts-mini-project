@@ -4,53 +4,28 @@ import Register from "./components/auth/Register";
 import SelectProfile from "./components/auth/SelectProfile";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import PublicRoute from "./components/auth/PubliceRoute";
 import MovieDetail from "./components/MovieDetail";
 
-function router() {
+
+const RouterSetup = () => {
+
+
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/movie/:id"
-          element={
-            <ProtectedRoute>
-              <MovieDetail />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/select-profile" element={
-         <ProtectedRoute loginOnly={false}> 
-                <SelectProfile />
-         </ProtectedRoute>
-        
-        } />
-        <Route
-          path="/login"
-          element={
-            <ProtectedRoute loginOnly={false}>
-              <Login />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <ProtectedRoute loginOnly={false}>
-              <Register />
-            </ProtectedRoute>
-          }
-        />
+        <Route element={<PublicRoute loginOnly={true} />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/select-profile" element={<SelectProfile />} />
+        </Route>
+        <Route element={<ProtectedRoute loginOnly={true} />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/movie/:id" element={<MovieDetail />} />
+        </Route>
       </Routes>
     </Router>
   );
 }
 
-export default router;
+export default RouterSetup;
