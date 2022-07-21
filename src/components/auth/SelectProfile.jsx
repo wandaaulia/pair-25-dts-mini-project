@@ -3,9 +3,15 @@ import Navbar from '../base/Navbar'
 import Button from '@mui/material/Button';
 import '../../assets/css/selectProfile.css'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { GET_PHOTO } from '../../store/reducer';
 
 const SelectProfile = () => {
+
+     const dispatch = useDispatch();
+      const navigate = useNavigate();
+
     const listProfile = [
         {
             name: 'Murat',
@@ -24,6 +30,16 @@ const SelectProfile = () => {
             img: require('../../assets/img/cocuk.png')
         },
     ]
+
+    const handleLogin = async (imgProfile) => {
+         try {
+             await dispatch(GET_PHOTO(imgProfile));
+            navigate('/login');
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     return (
         <div className="bg_default" sx={{ display: 'flex', alignItems: 'center' }}>
             <Navbar />
@@ -34,9 +50,8 @@ const SelectProfile = () => {
                         {
                             listProfile.map((item, i) => {
                                 return (
-                                    <div key={i} className="item_profile">
-                                     <Link to="/login">
-                                        <img src={item.img} alt="" className='img_profile' />  </Link>
+                                    <div key={i} className="item_profile"> 
+                                        <img src={item.img} alt="" className='img_profile' onClick={() => handleLogin(item.img)}/>  
                                         <p className="name_profile">
                                             {item.name}
                                         </p>
