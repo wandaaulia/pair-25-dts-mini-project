@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
-const RegularListMovie = ({ endpoint = 'discover/movie', imgResolution = 'w500' }) => {
+const RegularListMovie = ({ endpoint = 'discover/movie?', imgResolution = 'w500' }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const toDetail = item => {

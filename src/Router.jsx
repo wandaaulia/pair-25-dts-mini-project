@@ -10,6 +10,7 @@ import MovieDetail from "./components/MovieDetail";
 import { SplashScreen } from "./components/SplashScreen";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../src/config/firebase'
+import SearchMovie from "./components/SearchMovie";
 
 const RouterSetup = () => {
   const [user, loading] = useAuthState(auth);
@@ -29,6 +30,7 @@ const RouterSetup = () => {
           <Route path="/" element={<Home />} />
           <Route element={<ProtectedRoute loginOnly={true} />}>
             <Route path="/movie/:id" element={<MovieDetail />} />
+            <Route path="/search" element={<SearchMovie />} />
           </Route>
         </Routes>
       </Router>

@@ -24,7 +24,7 @@ const MovieDetail = () => {
     const fetchData = async () => {
         try {
             let data = {
-                path: `movie/${id}`
+                path: `movie/${id}?`
             }
             const res = await dispatch(fetchApi(data));
             setMovie(res)
@@ -41,7 +41,7 @@ const MovieDetail = () => {
         setLoading(true)
         try {
             let data = {
-                path: `movie/${id}/images`
+                path: `movie/${id}/images?`
             }
             const res = await dispatch(fetchApi(data));
             console.log(res.logos)

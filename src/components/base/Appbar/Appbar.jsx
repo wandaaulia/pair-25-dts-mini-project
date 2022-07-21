@@ -2,7 +2,6 @@ import * as React from "react";
 // import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 
@@ -22,16 +21,17 @@ import profilImg from "../../../assets/img/ProfileIMG.png";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from 'firebase/auth';
 import { auth } from "../../../config/firebase";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation, matchRoutes } from 'react-router-dom';
 
 import "./appbar.css";
 
 const pages = ["Home", "Series", "Movie", "New and Popular", "My List"];
 const iconNav = [gift, notif];
 
-const ResponsiveNavbar = (props) => {
+const ResponsiveNavbar = () => {
   const [user, loading] = useAuthState(auth);
-
+  const location = useLocation()
+  console.log(location)
   const navigate = useNavigate();
 
   let linkHome;
@@ -60,7 +60,7 @@ const ResponsiveNavbar = (props) => {
       navigate("/")
     }
   }
-  if (!user && !loading) {
+  if (!user && !loading && location.pathname !== '/select-profile') {
     linkHome = <button className="login_sign_app" onClick={() => navigate("/login")}>Login</button>
     // linkHome = <Link to="/login" variant="body2" className="login-btn">login</Link>
   } else {

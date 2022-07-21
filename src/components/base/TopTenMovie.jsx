@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
 
-const RegularListMovie = ({ title, endpoint = 'discover/movie', imgResolution = 'w500' }) => {
+const RegularListMovie = ({ title, endpoint = 'discover/movie?', imgResolution = 'w500' }) => {
     const dispatch = useDispatch()
 
     const staticState = useSelector(state => state.apis)
