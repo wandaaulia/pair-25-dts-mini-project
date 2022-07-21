@@ -27,11 +27,12 @@ import "./appbar.css";
 const pages = ["Home", "Series", "Movie", "New and Popular", "My List"];
 const iconNav = [gift, notif];
 
-const ResponsiveNavbar = () => {
+const ResponsiveNavbar = (props) => {
   const [user] = useAuthState(auth);
 
   const navigate = useNavigate();
 
+  let linkHome;
 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -52,11 +53,21 @@ const ResponsiveNavbar = () => {
     }
   };
 
+<<<<<<< HEAD
   const toPage = item => {
     if (item === 'Home') {
       navigate("/")
     }
   }
+=======
+    if(props.home) {
+      linkHome = <Link to="/login" variant="body2" className="login-btn">login</Link>
+    } else {
+      linkHome = <div> </div>
+    }
+
+
+>>>>>>> 09efabac824563bdc864d1a5e73f1967a6735128
   return (
     <Container maxWidth="xl">
       <Toolbar disableGutters>
@@ -64,11 +75,19 @@ const ResponsiveNavbar = () => {
           <Avatar alt="Remy Sharp" src={logo} onClick={() => toPage('Home')} />
         </Box>
 
+<<<<<<< HEAD
         {user && (
           <>
             <Box
               sx={{
                 flexGrow: 2,
+=======
+          {user ? (
+            <>
+              <Box
+                sx={{
+                  flexGrow: 2,
+>>>>>>> 09efabac824563bdc864d1a5e73f1967a6735128
 
                 display: { xs: "none", md: "flex" },
               }}
@@ -88,6 +107,7 @@ const ResponsiveNavbar = () => {
               />
             </Box>
 
+<<<<<<< HEAD
             <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
               <ul className="appbar-icon">
                 <li>
@@ -135,6 +155,16 @@ const ResponsiveNavbar = () => {
         )}
       </Toolbar>
     </Container>
+=======
+              </Box>
+            </>
+          ) : 
+          linkHome
+          }
+        </Toolbar>
+      </Container>
+    </AppBar>
+>>>>>>> 09efabac824563bdc864d1a5e73f1967a6735128
   );
 };
 export default ResponsiveNavbar;

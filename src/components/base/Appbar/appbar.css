@@ -13,3 +13,8 @@
 .appbar-bgColor {
     background-color: #201F1F;
 }
+
+.login-btn {
+    color: white;
+    text-decoration: none;
+}
