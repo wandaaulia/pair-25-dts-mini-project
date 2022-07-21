@@ -34,6 +34,7 @@ const SelectProfile = () => {
     const handleLogin = async (imgProfile) => {
          try {
              await dispatch(GET_PHOTO(imgProfile));
+              localStorage.setItem("profilePhoto", JSON.stringify(imgProfile));
             navigate('/login');
         } catch (err) {
             console.log(err)
