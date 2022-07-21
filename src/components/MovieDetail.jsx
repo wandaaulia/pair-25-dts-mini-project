@@ -13,7 +13,9 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 const MovieDetail = () => {
     const staticState = useSelector(state => state.apis)
     const dispatch = useDispatch()
+    const [loading, setLoading] = useState(false)
     const [movie, setMovie] = useState([])
+    const [imgMovie, setImgMovie] = useState([])
     const [yt, setYt] = useState('')
     const { id } = useParams();
 
@@ -26,10 +28,25 @@ const MovieDetail = () => {
             }
             const res = await dispatch(fetchApi(data));
             setMovie(res)
+            getImage(res.id)
             youtubesearchapi.GetListByKeyword(res.original_title, [false], [1]).then(data => {
                 setYt(data.items[0])
             })
             document.querySelector('.movie_detail_hero').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(${staticState.host_img}original${res.backdrop_path ? res.backdrop_path : res.poster_path})`
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    const getImage = async () => {
+        setLoading(true)
+        try {
+            let data = {
+                path: `movie/${id}/images`
+            }
+            const res = await dispatch(fetchApi(data));
+            console.log(res.logos)
+            setImgMovie(`${staticState.host_img}w500${res.logos[0].file_path}`)
+            setLoading(false)
         } catch (err) {
             console.log(err)
         }
@@ -46,7 +63,12 @@ const MovieDetail = () => {
                 !isPlaying ? (
                     <div className="movie_detail_hero">
                         <div className='temp_overview'>
-                            <p className="title_movie_detail">{movie.original_title}</p>
+                            {/* <p className="title_movie_detail">{movie.original_title}</p> */}
+                            {
+                                !loading ? (
+                                    <img src={imgMovie} alt="asd" style={{ maxHeight: '200px' }} />
+                                ) : (<div></div>)
+                            }
                             <p className="color_default">{movie.overview}</p>
                             <div className="d-flex my-3">
                                 <button className='btn_play' onClick={() => setIsPlaying(true)}>

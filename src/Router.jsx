@@ -11,9 +11,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../src/config/firebase'
 
 const RouterSetup = () => {
-  // eslint-disable-next-line
   const [user, loading] = useAuthState(auth);
-  console.log(loading)
   if (loading) {
     return (
       <SplashScreen />
