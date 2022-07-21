@@ -43,7 +43,7 @@ const SelectProfile = () => {
 
     return (
         <div className="bg_default" sx={{ display: 'flex', alignItems: 'center' }}>
-            <Navbar />
+            <Navbar home={false}/>
             <div className="select_profile">
                 <div>
                     <p className="title_select_profile">Who’s watching?</p>
