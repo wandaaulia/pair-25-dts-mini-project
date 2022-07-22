@@ -97,9 +97,9 @@ const MovieDetail = () => {
                 <p className=" color_default">{movie.overview} </p>
             </div>
 
-            <RegularListMovie title='Popular' endpoint='movie/popular' />
-            <RegularListMovie title='Murat, Continue Watching' progress={true} endpoint='movie/upcoming' />
-            <RegularListMovie title='On the agenda' endpoint='trending/all/day' />
+            <RegularListMovie title='Popular' endpoint='movie/popular?' />
+            <RegularListMovie title='Murat, Continue Watching' progress={true} endpoint='movie/upcoming?' />
+            <RegularListMovie title='On the agenda' endpoint='trending/all/day?' />
             <Footer />
         </div>
     )
